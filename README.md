@@ -2,8 +2,10 @@
 
 \*\*Empezamos con actualizar el sistema.\*\*
 
-1- apt update && apt upgrade -y   
-2- Descargar estos fiheros:\\
+1- apt update && apt upgrade -y
+
+   
+2- Descargar estos fiheros:
 
 DCM4CHEE-2.18.3   
 https://sourceforge.net/projects/dcm4che/files/dcm4chee/2.18.3/dcm4chee-2.18.3-mysql.zip/download\
@@ -14,56 +16,98 @@ https://sourceforge.net/projects/jboss/files/JBoss/JBoss-4.2.3.GA/jboss-4.2.3.GA
 De aqui descargar jdk-7u80-linux-x64.tar.gz  
 https://www.oracle.com/java/technologies/javase/javase7-archive-downloads.html\
 
-3- mkdir -p /usr/local/java  
-4- cp -r jdk-7u80-linux-x64.tar.gz /usr/local/java/  
-5- cd /usr/local/java  
-6- tar xvzf jdk-7u80-linux-x64.tar.gz  
-7- nano /etc/profile vas hasta el final del archivo /etc/profile y agregas las siguientes lineas:  
-JAVA\_HOME=/usr/local/java/jdk1.7.0\_80  
-JRE\_HOME=/usr/local/java/jdk1.7.0\_80   
-PATH=$PATH:$JRE\_HOME/bin:$JAVA\_HOME/bin  
-export JAVA\_HOME  
-export JRE\_HOME  
-export PATH  
-8-Actualizas las alternativas:  
-update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/jdk1.7.0\_80/bin/java" 1  
-update-alternatives --install "/usr/bin/javac" "javac" "/usr/local/java/jdk1.7.0\_80/bin/javac" 1  
-update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/local/java/jdk1.7.0\_80/bin/javaws" 1  
-update-alternatives --set java /usr/local/java/jdk1.7.0\_80/bin/java  
-update-alternatives --set javac /usr/local/java/jdk1.7.0\_80/bin/javac  
-update-alternatives --set javaws /usr/local/java/jdk1.7.0\_80/bin/javaws  
-9-Recargas el profile:  
-source /etc/profile  
-10-Verificas la instalacion del java con el comando:  
-java -version  
-Te debe devolver esto:  
-java version "1.7.0\_80"  
-Java(TM) SE Runtime Environment (build 1.7.0\_80-b15)  
-Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)  
-11-Instalamos Mysql Server pero aca necesitamos una version antigua por que las actuales dan error con los indices al importar las bd.  
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.18-1_all.deb  
-dpkg -i mysql-apt-config\_0.8.18-1\_all.deb  
-Tambien pueden agregar manual en /etc/apt/sources.list  
-deb http://repo.mysql.com/apt/debian/ buster mysql-apt-config  
-deb http://repo.mysql.com/apt/debian/ buster mysql-5.7  
-deb http://repo.mysql.com/apt/debian/ buster mysql-tools  
-deb-src http://repo.mysql.com/apt/debian/ buster mysql-5.7  
-apt update  
-Les dara este error no se asusten  
-The following signatures couldn't be verified because the public key is not available: NO\_PUBKEY 467B942D3A79BD29  
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29  
-apt update  
-apt install -y mysql-community-server  
-!\[Screenshot\](1.webp)   
-!\[Screenshot\](2.webp)  
-!\[Screenshot\](3.webp)  
-!\[Screenshot\](4.webp)  
-sudo systemctl restart mysql  
-sudo systemctl enable mysql  
-escribimos:   
-mysql\_secure\_installation  
-y van respondiendo las preguntas segun le interese por mi parte lo deje todo por defecto.  
-12- Escribimos mysql -u root -p  
+3- mkdir -p /usr/local/java
+
+4- cp -r jdk-7u80-linux-x64.tar.gz /usr/local/java/
+
+5- cd /usr/local/java
+
+6- tar xvzf jdk-7u80-linux-x64.tar.gz
+
+7- nano /etc/profile vas hasta el final del archivo /etc/profile y agregas las siguientes lineas:
+
+```plaintext
+JAVA_HOME=/usr/local/java/jdk1.7.0_80
+JRE_HOME=/usr/local/java/jdk1.7.0_80 
+PATH=$PATH:$JRE_HOME/bin:$JAVA_HOME/bin
+export JAVA_HOME
+export JRE_HOME
+export PATH
+```
+
+8-Actualizas las alternativas:
+
+```plaintext
+update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/jdk1.7.0_80/bin/java" 1
+update-alternatives --install "/usr/bin/javac" "javac" "/usr/local/java/jdk1.7.0_80/bin/javac" 1
+update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/local/java/jdk1.7.0_80/bin/javaws" 1
+update-alternatives --set java /usr/local/java/jdk1.7.0_80/bin/java
+update-alternatives --set javac /usr/local/java/jdk1.7.0_80/bin/javac
+update-alternatives --set javaws /usr/local/java/jdk1.7.0_80/bin/javaws
+```
+
+9-Recargas el profile:
+
+source /etc/profile
+
+10-Verificas la instalacion del java con el comando:
+
+java -version
+
+Te debe devolver esto:
+
+java version "1.7.0\_80"
+
+Java(TM) SE Runtime Environment (build 1.7.0\_80-b15)
+
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+11-Instalamos Mysql Server pero aca necesitamos una version antigua por que las actuales dan error con los indices al importar las bd.
+
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.18-1_all.deb
+
+dpkg -i mysql-apt-config\_0.8.18-1\_all.deb
+
+Tambien pueden agregar manual en /etc/apt/sources.list
+
+```plaintext
+deb http://repo.mysql.com/apt/debian/ buster mysql-apt-config
+deb http://repo.mysql.com/apt/debian/ buster mysql-5.7
+deb http://repo.mysql.com/apt/debian/ buster mysql-tools
+deb-src http://repo.mysql.com/apt/debian/ buster mysql-5.7
+```
+
+apt update
+
+Les dara este error no se asusten
+
+The following signatures couldn't be verified because the public key is not available: NO\_PUBKEY 467B942D3A79BD29
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
+
+apt update
+
+apt install -y mysql-community-server
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/b04eab2f4ff64abec1b64ece8e9b51112ce0c0981757432b.webp)
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/faab8ba82a73e95a86127ab62e35a5704374ee6c1b5c1280.webp)
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/8a10b2841580ece18c891f996be499d0184d9968400735e4.webp)
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/ce024880e94d4aae8dd94a3dfb45a5341b8bae2c352c3f57.webp)
+
+systemctl restart mysql  
+systemctl enable mysql
+
+escribimos: 
+
+mysql\_secure\_installation
+
+y van respondiendo las preguntas segun le interese por mi parte lo deje todo por defecto.
+
+12- Escribimos mysql -u root -p
+
 Creas la siguiente estructura:\\
 
 ```plaintext
