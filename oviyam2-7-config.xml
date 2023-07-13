@@ -1,0 +1,170 @@
+<configuration>
+   <users class="java.util.ArrayList">
+      <user>
+         <user-name>user</user-name>
+         <search-params>
+            <buttons class="java.util.ArrayList">
+               <button>
+                  <button-label>CT Hoy</button-label>
+                  <date-criteria>t</date-criteria>
+                  <modality>CT</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+               <button>
+                  <button-label>CT Ayer</button-label>
+                  <date-criteria>t-1</date-criteria>
+                  <modality>CT</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+               <button>
+                  <button-label>MR Hoy</button-label>
+                  <date-criteria>t</date-criteria>
+                  <modality>MR</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+               <button>
+                  <button-label>MR Ayer</button-label>
+                  <date-criteria>t-1</date-criteria>
+                  <modality>MR</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+            </buttons>
+         </search-params>
+         <theme>Dark Hive</theme>
+         <viewer-slider>hide</viewer-slider>
+         <session-timeout>1800</session-timeout>
+      </user>
+      <user>
+         <user-name>admin</user-name>
+         <search-params>
+            <buttons class="java.util.ArrayList">
+               <button>
+                  <button-label>CT Hoy</button-label>
+                  <date-criteria>t</date-criteria>
+                  <modality>CT</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+               <button>
+                  <button-label>CT Ayer</button-label>
+                  <date-criteria>t-1</date-criteria>
+                  <modality>CT</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+               <button>
+                  <button-label>MR Hoy</button-label>
+                  <date-criteria>t</date-criteria>
+                  <modality>MR</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+               <button>
+                  <button-label>MR Ayer</button-label>
+                  <date-criteria>t-1</date-criteria>
+                  <modality>MR</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+            </buttons>
+         </search-params>
+         <theme>Dark Hive</theme>
+         <viewer-slider>undefined</viewer-slider>
+         <session-timeout>600</session-timeout>
+         <prefetch>Yes</prefetch>
+      </user>
+      <user>
+         <user-name>doctor</user-name>
+         <search-params>
+            <buttons class="java.util.ArrayList">
+               <button>
+                  <button-label>CT Hoy</button-label>
+                  <date-criteria>t</date-criteria>
+                  <modality>CT</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+               <button>
+                  <button-label>CT Ayer</button-label>
+                  <date-criteria>t-1</date-criteria>
+                  <modality>CT</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+               <button>
+                  <button-label>MR Hoy</button-label>
+                  <date-criteria>t</date-criteria>
+                  <modality>MR</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+               <button>
+                  <button-label>MR Ayer</button-label>
+                  <date-criteria>t-1</date-criteria>
+                  <modality>MR</modality>
+                  <auto-refresh>0</auto-refresh>
+               </button>
+            </buttons>
+         </search-params>
+         <theme>Dark Hive</theme>
+         <viewer-slider>hide</viewer-slider>
+         <session-timeout>1800</session-timeout>
+      </user>
+   </users>
+   <servers class="java.util.ArrayList">
+      <server>
+         <logicalname>DCM4CHEE</logicalname>
+         <aetitle>DCM4CHEE</aetitle>
+         <hostname>127.0.0.1</hostname>
+         <port>11112</port>
+         <retrieve>WADO</retrieve>
+         <wadocontext>wado</wadocontext>
+         <wadoport>8080</wadoport>
+         <previews>true</previews>
+         <imageType>JPEG</imageType>
+      </server>
+   </servers>
+   <listener>
+      <aetitle>OVIYAM2</aetitle>
+      <port>1025</port>
+   </listener>
+   <languages class="java.util.ArrayList">
+      <language>
+         <lang>English</lang>
+         <country>United Kingdom</country>
+         <localeID>en_GB</localeID>
+         <selected>false</selected>
+      </language>
+      <language>
+         <lang>Spanish</lang>
+         <country>Spain</country>
+         <localeID>es_ES</localeID>
+         <selected>true</selected>
+      </language>
+      <language>
+         <lang>Tamil</lang>
+         <country>India</country>
+         <localeID>ta_IN</localeID>
+         <selected>false</selected>
+      </language>
+      <language>
+         <lang>German</lang>
+         <country>Germany</country>
+         <localeID>de_DE</localeID>
+         <selected>false</selected>
+      </language>
+      <language>
+         <lang>Japanese</lang>
+         <country>Japan</country>
+         <localeID>ja_JP</localeID>
+         <selected>false</selected>
+      </language>
+      <language>
+         <lang>Russian</lang>
+         <country>Russia</country>
+         <localeID>ru_RU</localeID>
+         <selected>false</selected>
+      </language>
+   </languages>
+   <ioviyam-context>/ioviyam2</ioviyam-context>
+   <download-study>yes</download-study>
+   <overlayText>
+      <ImageLaterality>
+         <display>Yes</display>
+         <modality>ALL</modality>
+      </ImageLaterality>
+   </overlayText>
+</configuration>
